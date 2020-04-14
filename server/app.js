@@ -2,8 +2,11 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 
 // const uri = "mongodb+srv://gauss_najera:onceonceonce112@nodeapi-s48ar.mongodb.net/graphQL?retryWrites=true&w=majority"
 const uri = 'mongodb+srv://onceonceonce11:onceonceonce11@nemo-rkcm5.mongodb.net/graphQL?retryWrites=true&w=majority';
