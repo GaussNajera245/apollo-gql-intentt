@@ -21,6 +21,9 @@ app.use(express.static('public'))
 //     schema: schema, // you can also put just schema cause it has the same name:V
 //     // graphiql:true
 // }));
+app.get("/", function (req, res) {
+    res.send("<h1>Hello World!</h1>")
+})
 
 const PORT = process.env.PORT || 4001;
 
