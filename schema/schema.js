@@ -1,11 +1,7 @@
 const graphql = require('graphql');
 const { GraphQLNonNull, GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
-const _ = require('lodash');
 const Author = require('../models/author');
 const Book = require('../models/book');
-//1.- Define types
-//2.- Defining relationships between types
-//3.- Defining root queries
 
 const BookType = new GraphQLObjectType({
     name: 'Book',
@@ -32,11 +28,6 @@ const AuthorType = new GraphQLObjectType({
             type: new GraphQLList(BookType),
             resolve(parent,args){
                 return Book.find({authorID:parent.id})
-                // let re = [];
-                // books.map( a => (a.authorId === parents.id) && (re.push(a)) )
-                // console.log(re)
-                // // return _.filter(books,{authorId:parents.id})  ///
-                // return re
             }
         }
     })
