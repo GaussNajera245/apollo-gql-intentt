@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
+app.use(express.static('public'))
 app.use(cors());
 
 const uri = 'mongodb+srv://onceonceonce11:onceonceonce11@nemo-rkcm5.mongodb.net/graphQL?retryWrites=true&w=majority';
@@ -21,7 +22,7 @@ app.use('/', graphqlHTTP({
     // graphiql:true
 }));
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 
 app.listen( PORT, () => {
     console.log(`Now listening on port ${PORT}`);
