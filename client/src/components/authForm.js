@@ -1,7 +1,6 @@
 import React from 'react'
 import { useMutation } from '@apollo/react-hooks';
-import { addAuthor } from '../queries/index';
-
+import { addAuthor, getAuthors } from '../queries/query';
 
 const AuthForm = () => {
     let authName, authAge;
@@ -12,14 +11,18 @@ const AuthForm = () => {
         <>
         <form onSubmit={ e => {
                 e.preventDefault();
-                addData({ 
-                    variables: { 
-                        authorsName: authName.value, 
-                        authorsAge: parseInt(authAge.value) 
-                    }
-                });
-                authName.value = '';
-                authAge.value = '';
+
+                if( !isNaN(authAge.value) ){
+                    addData({ 
+                        variables: { 
+                            authorsName: authName.value, 
+                            authorsAge: parseInt(authAge.value) 
+                        },
+                        refetchQueries:[{query: getAuthors}]
+                    });
+                    authName.value = '';
+                    authAge.value = '';
+                }
             }}
         >
             <h2>New Author</h2>

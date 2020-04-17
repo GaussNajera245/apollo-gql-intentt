@@ -1,7 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-// import { graphql } from 'apollo-boost';
-import { getBooks } from '../queries/index'
+import { getBooks } from '../queries/query'
 
 const BookList = ({setID}) => {
     const { loading, data } = useQuery(getBooks);

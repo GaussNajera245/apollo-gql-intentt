@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { addBook, getAuthors, getBooks } from '../queries/index';
+import { addBook, getAuthors, getBooks } from '../queries/query';
 
 const BookForm = props => {
     let bookName, bookGenre;
