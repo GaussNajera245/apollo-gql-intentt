@@ -10,6 +10,10 @@ h2{
 
 }
 
+#main{
+    width: 60%;
+}
+
 #main h1{
     text-align: center;
 }
@@ -32,13 +36,16 @@ h2{
 #form{
     padding: 28px;
     position: fixed;
-    left: 0;
+    right: 0;
     bottom: 0;
-    width: 400px;
+    /* width: 400px; */
     background: #fff;
     border-radius: 29px;
     margin: 15px;
     font-size: 1.2rem;
+    z-index: 1;
+    color:black;
+    min-width: 250px;
 }
 
 #form .field{
@@ -62,15 +69,15 @@ h2{
 
 #form button{
     color: #fff;
-    font-size: 2em;
+    font-size: 25px;
     background: #AD1457;
     border: 0;
-    padding: 0 11px 4px;
-    border-radius: 50%;
+    padding: 0 7px 3px;
+    border-radius: 100%;
     cursor: pointer;
     position: absolute;
-    bottom: 20px;
-    right: 23px;
+    right: 58px;
+    top: 32px;
 }
 
 #book-details{

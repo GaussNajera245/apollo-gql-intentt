@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { gql } from 'apollo-boost';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
@@ -24,15 +24,24 @@ const AUTH_QUERY = gql`
 
 const BookForm = props => {
     let bookName, bookGenre;
-    let [addData, {data, error}] = useMutation(MUTATION_BOOK);
-    // const [bookAuthID, setAuthID] = useState("5e94a60e8d88fd28fc2f477d");
-    const {bookAuthID, setAuthID, trigger} = props;
+    // let [addData, {data, error}] = useMutation(MUTATION_BOOK);
+    let [addData] = useMutation(MUTATION_BOOK);
+    const [bookAuthID, setAuthID] = useState("5e94a60e8d88fd28fc2f477d");
+    // const {bookAuthID, setAuthID, trigger} = props;
     const query = useQuery(AUTH_QUERY);
 
     const Options = () => (
         (query.loading) 
-        ? <option value="loding">Loading...</option>
-        : query.data.authors.map( o => <option value={o.id} key={o.id}>{o.name} </option> ) 
+        ? <option value="loading">Loading...</option>
+        : query.data.authors.map( 
+            o => {
+                if(bookAuthID === o.id){
+                    return <option value={o.id} key={o.id} selected >{o.name} </option> 
+                }
+                else{
+                    return <option value={o.id} key={o.id}>{o.name} </option> 
+                }
+        }) 
     );
 
     return (

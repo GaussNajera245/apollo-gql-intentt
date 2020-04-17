@@ -13,7 +13,7 @@ const MUTATION_AUTH = gql`
 
 const AuthForm = () => {
     let authName, authAge;
-    const [addData , {data, error}] = useMutation( MUTATION_AUTH );
+    const [addData , { error }] = useMutation( MUTATION_AUTH );
     if (error) { console.log(error)};
 
     return (
