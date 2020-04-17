@@ -47,14 +47,3 @@ const AuthForm = () => {
 }
  
 export default AuthForm;
-
-
-// mutation{
-//     addBook(name:"The Passage", genre:"Supernatural", authorID:"5e975c0d479b850eb8a29479"){
-//     name
-//     author{
-//         name
-//         id
-//     }
-//     }
-// }

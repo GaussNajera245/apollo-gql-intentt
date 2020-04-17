@@ -6,7 +6,6 @@ import BookForm from './components/bookForm'
 import BookDetails from './components/bookDetails'
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import Grid from '@material-ui/core/Grid';
 
 const client = new ApolloClient({
     uri:'https://first-apollogql.herokuapp.com/'  
@@ -14,13 +13,10 @@ const client = new ApolloClient({
 
 const App = () => {
     const [ add, setWhichToAdd ] = useState('addBook');
-    const [ trigger, setTrigger ] = useState('');
     const [ bookID, setID ] = useState("");
 
     let whichForm = useRef();
 
-    // const reRenderBookList = () => setTrigger(!trigger);
- 
     return(
         <ApolloProvider client={client}>
             <BookList setID={setID} />

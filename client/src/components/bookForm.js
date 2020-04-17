@@ -11,7 +11,7 @@ mutation AddBook( $bookName: String!, $bookGenre: String!, $bookAuthID: ID!){
             name
             id
         }
-}
+    }
 `;
 const AUTH_QUERY = gql`
     query{
