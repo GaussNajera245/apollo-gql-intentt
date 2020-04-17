@@ -1,19 +1,11 @@
 import React from 'react'
-import { gql } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
+import { addAuthor } from '../queries/index';
 
-const MUTATION_AUTH = gql`
-    mutation AddAuthor($authorsName: String!, $authorsAge: Int!){
-        addAuthor(name:$authorsName, age:$authorsAge){
-          name
-          id
-        }
-    }
-`;
 
 const AuthForm = () => {
     let authName, authAge;
-    const [addData , { error }] = useMutation( MUTATION_AUTH );
+    const [addData , { error }] = useMutation( addAuthor );
     if (error) { console.log(error)};
 
     return (

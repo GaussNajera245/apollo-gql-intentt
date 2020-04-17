@@ -14,17 +14,18 @@ const client = new ApolloClient({
 const App = () => {
     const [ add, setWhichToAdd ] = useState('addBook');
     const [ bookID, setID ] = useState("");
+    const [ bookData, setBookData ] = useState([]);
 
     let whichForm = useRef();
 
     return(
         <ApolloProvider client={client}>
-            <BookList setID={setID} />
+            <BookList setID={setID} book={bookData}/>
             <BookDetails currentBook={bookID}>
                 <div id='form'>
                     {(add === 'authorForm') 
                         ? <AuthForm/>
-                        : <BookForm/>
+                        : <BookForm newBook={setBookData} />
                     }
                     <select ref={whichForm} onChange={ () => setWhichToAdd(whichForm.current.value) }>
                         <option value="bookForm">Book</option>

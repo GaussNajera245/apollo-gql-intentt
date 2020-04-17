@@ -1,34 +1,14 @@
 import React, { useState } from 'react';
-import { gql } from 'apollo-boost';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-
-const MUTATION_BOOK = gql`
-mutation AddBook( $bookName: String!, $bookGenre: String!, $bookAuthID: ID!){
-    addBook(
-        name:$bookName, 
-        genre:$bookGenre, 
-        authorID: $bookAuthID ){
-            name
-            id
-        }
-    }
-`;
-const AUTH_QUERY = gql`
-    query{
-        authors{
-            name
-            id
-        }
-    }
-`;
+import { addBook, getAuthors, getBooks } from '../queries/index';
 
 const BookForm = props => {
     let bookName, bookGenre;
     // let [addData, {data, error}] = useMutation(MUTATION_BOOK);
-    let [addData] = useMutation(MUTATION_BOOK);
+    let [addData] = useMutation(addBook);
     const [bookAuthID, setAuthID] = useState("5e94a60e8d88fd28fc2f477d");
     // const {bookAuthID, setAuthID, trigger} = props;
-    const query = useQuery(AUTH_QUERY);
+    const query = useQuery(getAuthors);
 
     const Options = () => (
         (query.loading) 
@@ -54,8 +34,9 @@ const BookForm = props => {
                             bookName: bookName.value, 
                             bookGenre: bookGenre.value, 
                             bookAuthID: bookAuthID
-                        }
-                    });
+                        },
+                        refetchQueries: [{query: getBooks}]
+                    })
                 }
                 else{
                     console.log('nel');

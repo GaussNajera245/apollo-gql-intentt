@@ -1,21 +1,9 @@
 import React from 'react'
-import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
-
-const CURRENT_BOOK = gql`
-    query getBook($CurrBook: ID!){
-        book(id: $CurrBook){
-            name
-            genre
-            author{
-                name
-            }
-        }
-    }
-`;
+import { getOneBook } from '../queries/index';
 
 const BookDetails = ({currentBook, children}) => {
-    const {data, loading} = useQuery(CURRENT_BOOK, {variables: {CurrBook: currentBook}});
+    const {data, loading} = useQuery(getOneBook, {variables: {CurrBook: currentBook}});
 
     return (
         <div id="book-details">
