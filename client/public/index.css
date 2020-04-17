@@ -4,6 +4,12 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+h2{
+    margin: 0 0 12.9px;
+    font-size: 1.9rem;
+
+}
+
 #main h1{
     text-align: center;
 }
@@ -23,43 +29,48 @@ body {
     color: #880E4F;
 }
 
-form{
-    background: #fff;
-    padding: 20px;
+#form{
+    padding: 28px;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 400px;
+    background: #fff;
+    border-radius: 29px;
+    margin: 15px;
+    font-size: 1.2rem;
 }
 
-form .field{
+#form .field{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
 
-form label{
+#form label{
     text-align: right;
     padding: 6px;
+    display: inline-flex;
+    width: 80px;
 }
 
-form input, form select{
+#form input, #form select{
     margin: 4px 0;
     padding: 6px;
     box-sizing: border-box;
 }
 
-form button{
+#form button{
     color: #fff;
     font-size: 2em;
     background: #AD1457;
     border: 0;
-    padding: 0 10px;
+    padding: 0 11px 4px;
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 20px;
+    right: 23px;
 }
 
 #book-details{

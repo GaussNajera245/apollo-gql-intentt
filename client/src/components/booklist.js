@@ -8,6 +8,7 @@ const query = gql`
             name
             author {
                 name
+                id
             }
           }
         }
@@ -16,7 +17,7 @@ const query = gql`
 const BookList = () => {
     const { loading, error, data } = useQuery(query);
 
-    const AllBooks = () => data.books.map( book =>  <li key={book.name}>{book.name}</li>);
+    const AllBooks = () => data.books.map( book =>  <li key={book.id}>{book.name}</li>);
 
     return (
         <ul id="book-list">
