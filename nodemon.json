@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER": "super_user ",
+        "MONGO_PASSWORD": "0ywbFfolLRWh3xup",
+        "MONGO_DB": "apollographQL"
+    }
+}
