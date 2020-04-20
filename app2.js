@@ -9,7 +9,7 @@ const uri = 'mongodb+srv://onceonceonce11:onceonceonce11@nemo-rkcm5.mongodb.net/
 
 mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true})
     .then( () => {
-        server.listen().then(
+        server.listen({ port: process.env.PORT || 4000 }).then(
             ({url}) => {
                 console.log(`🚀 Server ready at ${url}`)
             }
