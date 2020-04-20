@@ -31,7 +31,8 @@ const typeDefs = gql`
 
     type Mutation {
         addAuthor( name: String!, hometown: String!, age: Int! ): Author,
-        addBook( input: AddBookInput ): Book
+        addBook( input: AddBookInput ): Book,
+        deleteBook(id:ID): Book
     }
 `;
 

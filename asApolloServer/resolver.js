@@ -11,7 +11,6 @@ const Queries = {
     books: async () => {
         // console.log(Book.find({}))
         return await Book.find({})
-
     },
     authors: async () => {
         return await Author.find({})
@@ -26,6 +25,9 @@ const Mutation = {
     addBook: async (_, args) => {
         let book = new Book({...args.input});
         return await book.save();
+    },
+    deleteBook: async (_, args) => {
+        return Book.findByIdAndDelete(args.id)
     }
 };
 
